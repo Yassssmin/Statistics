@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class StatsService<sum> {
+public class StatsService {
     public long sumAll(int[] numbers) {
         int sum = 0;
 
