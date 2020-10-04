@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class StatsService {
+public class StatsService<sum> {
     public long sumAll(int[] numbers) {
         int sum = 0;
 
@@ -12,13 +12,12 @@ public class StatsService {
     }
 
     public long averageAmount(int[] numbers) {
-        int sum = 0;
+        long sumAll = sumAll (numbers);
+        long sum;
 
-        for (int num : numbers) {
-            sum = sum + num;
-        }
+        sum = sumAll / numbers.length;
 
-        return sum / numbers.length;
+        return sum;
     }
 
     public long maxSales(int[] numbers) {
@@ -29,9 +28,8 @@ public class StatsService {
         for (int i = 1; i < numbers.length; i++) {
             if (max < numbers[i]) {
                 maxIndex = i;
+                max = numbers[i];
             }
-
-            max = Math.max(max, numbers[i]);
         }
 
         monthNumber = maxIndex + 1;
@@ -47,9 +45,9 @@ public class StatsService {
         for (int i = 1; i < numbers.length; i++) {
             if (min > numbers[i]) {
                 minIndex = i;
+                min = numbers[i];
             }
 
-            min = Math.min(min, numbers[i]);
         }
 
         monthNumber = minIndex + 1;
